@@ -122,12 +122,17 @@
             </p>
             <nav>
                 <ul>
-                    <li><a href="#" onclick="scrollToElement('header2'); return false;">Header 2</a></li>
-                    <li><a href="#" onclick="scrollToElement('header3'); return false;">Header 3</a></li>
-                    <li><a href="#" onclick="scrollToElement('header4'); return false;">Header 4</a></li>
-                    <li><a href="#" onclick="scrollToElement('header5'); return false;">Header 5</a></li>
-                    <li><a href="#" onclick="scrollToElement('header6'); return false;">Header 6</a></li>
-                    <li><a href="#" onclick="scrollToElement('header7'); return false;">Header 7</a></li>
+                    <li><a href="#" onclick="scrollToElement('header1'); return false;">Finding Limits Graphically (One Sided)</a></li>
+                    <li><a href="#" onclick="scrollToElement('header2'); return false;">Piecewise Limits</a></li>
+                    <li><a href="#" onclick="scrollToElement('header3'); return false;">Limits of Rational Functions</a></li>
+                    <li><a href="#" onclick="scrollToElement('header4'); return false;">Continuity with k</a></li>
+                    <li><a href="#" onclick="scrollToElement('header5'); return false;">Different Kinds of Discontinuity</a></li>
+                    <li><a href="#" onclick="scrollToElement('header6'); return false;">Limits to Infinity (Type 1)</a></li>
+                    <li><a href="#" onclick="scrollToElement('header7'); return false;">Limits to Positive or Negative Infinity</a></li>
+                    <li><a href="#" onclick="scrollToElement('header8'); return false;">AROC</a></li>
+                    <li><a href="#" onclick="scrollToElement('header9'); return false;">Write Derivative as a Limit (h → 0 only)</a></li>
+                    <li><a href="#" onclick="scrollToElement('header10'); return false;">Write Derivative as a Limit</a></li>
+                    <li><a href="#" onclick="scrollToElement('header11'); return false;">Determining Differentiability from a Graph</a></li>
                 </ul>
             </nav>
             
@@ -204,12 +209,52 @@
 
         </p>
         
-        <h2 id="header6">Header 6</h2>
-        <p>Body text for Header 6</p>
+        <h2 id="header6">Limits to Infinity (Type 1)</h2>
+        <p>
+            <img src="Limits to Infinity (Type 1) 1.png" alt="Limits to Infinity (Type 1) 1"><br>
+            The first step of solving this is to distribute<br>
+            <img src="Limits to Infinity (Type 1) 2.png" alt="Limits to Infinity (Type 1) 2"><br>
+            after that, take the leading terms, because in this example the numerator has a larger power, the limit DNE<br>
+            if the power of the numerator and denomenator are equal the limit is the value after you cancel everything out<br>
+            if the power of the denomenator is greater than the numerator the limit is zero<br>
+        </p>
         
-        <h2 id="header7">Header 7</h2>
-        <p>Body text for Header 7</p>
+        <h2 id="header7">Limits to Positive or Negative Infinity</h2>
+        <p>
+            <img src="Limits to Positive or Negative Infinity 1.png" alt="Limits to Positive or Negative Infinity 1"><br>
+            plug in a LARGE number for x, because the addition of 2 and e^-x are inconsequential at such a large scale,<br>
+            we can ignore them, since the power of the denomenator is larger than that of the numerator the limit is 0<br>
+            if the power of the numerator and denomenator are equal the limit is the value after you cancel everything out<br>
+            if the power of the numerator is greater than the denomenator the limit DNE<br>
+        </p>
+        <h2 id="header8">AROC</h2>
+        <p>
+            the formula for AROC is Δy/Δx
+        </p>
+        <h2 id="header9">Write Derivative as a Limit (h → 0 only)</h2>
+        <p>
+            the formula for a derivitive as a limit with 'h', is lim[(f(x)-f(x+h))/h] as h→0<br>
+        </p>
+        <h2 id="header10">Write Derivative as a Limit</h2>
+        <p>
+            the formula for a derivitive as a limit with 'a' at x=a, is lim[(f(x)-f(a))/(x-a)] as x→a<br>
+        </p>
+        <h2 id="header11">Determining Differentiability from a Graph</h2>
+        <p>
+            Identify points of interest: Examine the graph to identify points where you suspect differentiability <br>
+            might be an issue, such as sharp corners, cusps, or points where the graph has a discontinuity.<br>
+            Check continuity: Before determining differentiability, ensure that the function is continuous at <br>
+            the point of interest. A function must be continuous at a point for it to be differentiable at that point. <br>
+            Look for any breaks or jumps in the graph that might indicate a lack of continuity.<br>
+            Check for sharp corners: If the graph has a sharp corner at the point of interest, it indicates a potential <br>
+            non-differentiability. At a sharp corner, the tangent lines on either side of the corner would have different <br>
+            slopes, making it impossible for the function to have a well-defined derivative at that point.<br>
+            Look for vertical tangents: Vertical tangents occur when the slope of the tangent line becomes infinite. <br>
+            If you observe a vertical tangent on the graph, it indicates a lack of differentiability at that point.<br>
+        </p>
         
+        <p><br><br><br><br></p>
+
         <script>
             document.getElementById("toggleButton").addEventListener(
                 "change",

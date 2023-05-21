@@ -11,6 +11,12 @@
       {
         "html-has-lang": "off"
       }
+    ],
+    "axe/structure": [
+      "default",
+      {
+        "listitem": "off"
+      }
     ]
   }
 }
