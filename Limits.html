@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Limits</title>
+        <style>
+            .modified-background {
+                background-color: #ffffff;
+            }
+            
+            .modified-text {
+                color: #000000;
+            }
+            
+            body {
+                background-color: #000000;
+                color: #ffffff;
+            }
+            
+            header {
+                background-color: #1ea7b9;
+                padding: 20px;
+            }
+            
+            header h1 {
+                color: #000000;
+                margin: 0;
+                font-size: 30px;
+            }
+            
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            nav li {
+                display: inline;
+                margin-right: 10px;
+            }
+            
+            nav a {
+                text-decoration: none;
+                color: #333;
+                font-size: 20px;
+            }
+            
+            .content {
+                margin: 20px;
+            }
+            
+            .toggle-input {
+                display: none;
+            }
+            
+            .toggle-label {
+                position: absolute;
+                top: 50px;
+                right: 20px;
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                background-color: #ccc;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            .toggle-input:checked+.toggle-label {
+                background-color: #2196F3;
+            }
+            
+            .toggle-label:before {
+                content: "";
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                width: 16px;
+                height: 16px;
+                background-color: white;
+                border-radius: 50%;
+                transition: transform 0.3s;
+            }
+            
+            .toggle-input:checked+.toggle-label:before {
+                transform: translateX(20px);
+            }
+            
+            .label {
+                position: absolute;
+                top: 50px;
+                right: 65px;
+                color: #000000;
+            }
+        </style>
+        <script>
+            function scrollToElement(elementId) {
+                var element = document.getElementById(elementId);
+                element.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        </script>
+    </head>
+    
+    <body>
+        <Header>
+            <h1>Limits</h1>
+            
+            <nav>
+                <ul>
+                    <li><a href="CheatSheet.html">Return</a></li>
+                    <li><a href="Derivitives.html">Derivitives</a></li>
+                    <li><a href="DerivitivesApplicationsCon.html">Derivitive Apps Context</a></li>
+                    <li><a href="DerivitiveApplicationsAny.html">Derivitive Apps Anylitical</a></li>
+                    <li><a href="Antidervitives.html">Antiderivitives</a></li>
+                    <li><a href="Calculator.html">Calculator</a></li>
+                </ul>
+            </nav>
+            <p>
+                
+            </p>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="scrollToElement('header2'); return false;">Header 2</a></li>
+                    <li><a href="#" onclick="scrollToElement('header3'); return false;">Header 3</a></li>
+                    <li><a href="#" onclick="scrollToElement('header4'); return false;">Header 4</a></li>
+                    <li><a href="#" onclick="scrollToElement('header5'); return false;">Header 5</a></li>
+                    <li><a href="#" onclick="scrollToElement('header6'); return false;">Header 6</a></li>
+                    <li><a href="#" onclick="scrollToElement('header7'); return false;">Header 7</a></li>
+                </ul>
+            </nav>
+            
+            <input type="checkbox" id="toggleButton"
+                class="toggle-input">
+            <label for="toggleButton" class="toggle-label"><br></label>
+            <div class="label">
+                <span>Toggle Light/Dark Modes</span>
+            </div>
+            
+        </Header>
+        
+        <h2 id="header1">Finding Limits Graphically (One Sided)</h2>
+        <p>
+            <img src="Finding Limits Graphically (One Sided).png"
+                alt="Finding Limits Graphically (One Sided).png"><br>
+            In the above image, to find a one sided limit using a
+            graph, look at the x-value and look at where the graph is
+            going at that x-value. <br>
+            Example:<br>
+            The limit of f(x) as x approaches 7 from the left would be
+            -5. <br>
+            The limit of f(x) as x approaches -3 from the right is
+            +∞.<br>
+            So the limit of a function as x approaches n is the y
+            value at n from the side specified.<br>
+        </p>
+        
+        <h2 id="header2">Piecewise Limits</h2>
+        <p>
+            <img src="piecewise functions ex1.png"
+                alt="piecewise functions ex1"><br>
+            In the above image, to evaluate f(7), you find which
+            equation applies to the value which would be the first and
+            you plug in x and evaluate.<br>
+            So f(7) = -13.<br>
+            In the instance x falls on a break in the piecewise
+            function, a directional limit would be used, so at x = 0
+            from the left is -6.<br>
+        </p>
+        
+        <h2 id="header3">Limits of Rational Functions</h2>
+        <p>
+            <img src="limit ex 1.png" alt="limit ex 1"><br>
+            To solve the above limit, cancel all possible factors, in
+            this case 'x'<br>
+            Because of the cancelation there is a hole at x = 0<br>
+            So, if you plug in 0 to the simplified equation (x + 6)/(x
+            - 3)<br>
+            So this limit is equal to -2 even though there is a hole
+            at x = 0<br>
+        </p>
+        
+        <h2 id="header4">Continuity with k</h2>
+        <p>
+            <img src="continuity k.png" alt="continuity k"><br>
+            To solve for k, set the equations equal at x = 10.<br>
+            So k = (4(10) + 20) / 10<br>
+            So k = 6<br>
+        </p>
+        
+        <h2 id="header5">Different Kinds of Discontinuity</h2>
+        <p>
+            <img src="removable discontinuity.png" alt="removable discontinuity">
+            <img src="jump discontinuity.png" alt="jump discontinuity">
+            <img src="infinite discontinuity.png" alt="infinite discontinuity"><br>
+            There are three kinds of discontinuity, removable, jump, and infinite<br>
+            A jump discontinuity takes place in a piecewise function where 
+            the limit from the left and right are not equal<br>
+            A removable discontinuity takes place in a piecewise function where 
+            the limit from the left and right are equal but the graph is undefined 
+            or redefined at that point<br>
+            an infinite discontinuity occurs at an asymptote<br>
+
+        </p>
+        
+        <h2 id="header6">Header 6</h2>
+        <p>Body text for Header 6</p>
+        
+        <h2 id="header7">Header 7</h2>
+        <p>Body text for Header 7</p>
+        
+        <script>
+            document.getElementById("toggleButton").addEventListener(
+                "change",
+                function() {
+                    document.body.classList.toggle(
+                        "modified-background");
+                    document.body.classList.toggle(
+                        "modified-text");
+                    
+                    var isModifiedBackground = document.body
+                        .classList.contains(
+                            "modified-background");
+                    var isModifiedText = document.body.classList
+                        .contains("modified-text");
+                    
+                    localStorage.setItem("backgroundModified",
+                        isModifiedBackground);
+                    localStorage.setItem("textModified",
+                        isModifiedText);
+                });
+            
+            window.addEventListener("DOMContentLoaded", function() {
+                var isModifiedBackground = localStorage
+                    .getItem("backgroundModified");
+                var isModifiedText = localStorage.getItem(
+                    "textModified");
+                
+                if (isModifiedBackground === "true") {
+                    document.body.classList.add(
+                        "modified-background");
+                }
+                if (isModifiedText === "true") {
+                    document.body.classList.add(
+                        "modified-text");
+                }
+            });
+        </script>
+    </body>
+    
+</html>
