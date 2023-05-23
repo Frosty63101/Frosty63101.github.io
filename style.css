@@ -1,0 +1,104 @@
+.modified-background {
+    background-color: #ffffff;
+}
+
+.modified-text {
+    color: #000000;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+header {
+    background-color: #1ea7b9;
+    padding: 20px;
+    margin-right: 950px;
+}
+
+header h1 {
+    color: #000000;
+    margin: 0;
+    font-size: 30px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+
+.content {
+    margin: 20px;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-label {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-input:checked+.toggle-label {
+    background-color: #2196F3;
+}
+
+.toggle-label:before {
+    content: "";
+    position: fixed;
+    top: 52px;
+    right: 42px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle-input:checked+.toggle-label:before {
+    transform: translateX(20px);
+}
+
+.label {
+    position: fixed;
+    top: 50px;
+    right: 65px;
+    color: #ffffff;
+}
+
+.toplabel {
+    color: #ffffff;
+    position: fixed;
+    bottom: 50px;
+    right: 80px;
+}
+
+#totop {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 50px;
+    right: 20px;
+}

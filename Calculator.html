@@ -3,116 +3,20 @@
     
     <head>
         <title>Calculator</title>
-        <style>
-            .modified-background {
-                background-color: #ffffff;
-            }
-            
-            .modified-text {
-                color: #000000;
-            }
-            
-            body {
-                background-color: #000000;
-                color: #ffffff;
-            }
-            
-            header {
-                background-color: #1ea7b9;
-                padding: 20px;
-            }
-            
-            header h1 {
-                color: #000000;
-                margin: 0;
-                font-size: 30px;
-            }
-            
-            nav ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            
-            nav li {
-                display: inline;
-                margin-right: 10px;
-            }
-            
-            nav a {
-                text-decoration: none;
-                color: #333;
-                font-size: 20px;
-            }
-            
-            .content {
-                margin: 20px;
-            }
-            
-            .toggle-input {
-                display: none;
-            }
-            
-            .toggle-label {
-                position: absolute;
-                top: 50px;
-                right: 20px;
-                display: inline-block;
-                width: 40px;
-                height: 20px;
-                background-color: #ccc;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-            
-            .toggle-input:checked+.toggle-label {
-                background-color: #2196F3;
-            }
-            
-            .toggle-label:before {
-                content: "";
-                position: absolute;
-                top: 2px;
-                left: 2px;
-                width: 16px;
-                height: 16px;
-                background-color: white;
-                border-radius: 50%;
-                transition: transform 0.3s;
-            }
-            
-            .toggle-input:checked+.toggle-label:before {
-                transform: translateX(20px);
-            }
-            
-            .label {
-                position: absolute;
-                top: 50px;
-                right: 65px;
-                color: #000000;
-            }
-        </style>
-        <script>
-            function scrollToElement(elementId) {
-                var element = document.getElementById(elementId);
-                element.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
-        </script>
+        <script src="art.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="scroll.js"></script>
     </head>
     
-    <body>
+    <body id="top">
         <Header>
-            <h1>Calculator</h1>
+            <h1 id="top">Calculator</h1>
             
             <nav>
                 <ul>
                     <li><a href="CheatSheet.html">Return</a></li>
                     <li><a href="Limits.html">Limits</a></li>
-                    <li><a href="Derivitives.html">Derivitives</a>
-                    </li>
+                    <li><a href="Derivitives.html">Derivitives</a></li>
                     <li><a href="DerivitivesApplicationsCon.html">Derivitive Apps Context</a></li>
                     <li><a href="DerivitiveApplicationsAny.html">Derivitive Apps Anylitical</a></li>
                     <li><a href="Antidervitives.html">Antiderivitives</a></li>
@@ -121,83 +25,79 @@
             <p>
                 
             </p>
-            <nav>
                 <ul>
-                    <li><a href="#" onclick="scrollToElement('header2'); return false;">Header 2</a></li>
-                    <li><a href="#" onclick="scrollToElement('header3'); return false;">Header 3</a></li>
-                    <li><a href="#" onclick="scrollToElement('header4'); return false;">Header 4</a></li>
-                    <li><a href="#" onclick="scrollToElement('header5'); return false;">Header 5</a></li>
-                    <li><a href="#" onclick="scrollToElement('header6'); return false;">Header 6</a></li>
-                    <li><a href="#" onclick="scrollToElement('header7'); return false;">Header 7</a></li>
+                    <li><a href="#" onclick="scrollToElement('header1'); return false;">Formulas</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header2'); return false;">Calculator How To - Useful Stuff</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header3'); return false;">Calculator How To - Derivitives</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header4'); return false;">Calculator How To - Maxima, Minima, Inflections</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header5'); return false;">Calculator How To - Integrals</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header6'); return false;">Calculator How To - Approximating Integrals With Sums 1</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header7'); return false;">Calculator How To - Approximating Integrals With Sums 2</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header8'); return false;">Calculator How To - Applications of Integrals</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header9'); return false;">Calculator How To - Differential Equations</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header10'); return false;">Calculator How To - Sequences and Series</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header11'); return false;">header11</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header12'); return false;">header12</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header13'); return false;">header13</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header14'); return false;">header14</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header15'); return false;">header15</a></li><br>
+
                 </ul>
-            </nav>
             
             <input type="checkbox" id="toggleButton" class="toggle-input">
             <label for="toggleButton" class="toggle-label"><br></label>
             <div class="label">
-                <span>Toggle Light/Dark Modes</span>
+                <span id="spantoggle">Toggle Light/Dark Modes</span>
             </div>
             
         </Header>
         
-        <h2 id="header1">Header 1</h2>
-        <p>Body text for Header 1</p>
+        <h2 id="header1">Formulas</h2>
+        <iframe src="formulas.pdf" width="61%" height="4350px"></iframe>
         
-        <h2 id="header2">Header 2</h2>
-        <p>Body text for Header 2</p>
+        <h2 id="header2">Calculator How To - Useful Stuff</h2>
+        <iframe src="ti1.pdf" width="61%" height="2200px"></iframe>
+        <h2 id="header3">Calculator How To - Derivitives</h2>
+        <iframe src="ti2.pdf" width="61%" height="2200px"></iframe>
+        <h2 id="header4">Calculator How To - Maxima, Minima, Inflections</h2>
+        <iframe src="ti3.pdf" width="61%" height="1200px"></iframe>
+        <h2 id="header5">Calculator How To - Integrals</h2>
+        <iframe src="ti4.pdf" width="61%" height="2200px"></iframe>
+        <h2 id="header6">Calculator How To - Approximating Integrals With Sums 1</h2>
+        <iframe src="ti5.pdf" width="61%" height="1156px"></iframe>
+        <h2 id="header7">Calculator How To - Approximating Integrals With Sums 2</h2>
+        <iframe src="ti6.pdf" width="61%" height="2200px"></iframe>
+        <h2 id="header8">Calculator How To - Applications of Integrals</h2>
+        <iframe src="ti7.pdf" width="61%" height="3300px"></iframe>
+        <h2 id="header9">Calculator How To - Differential Equations</h2>
+        <iframe src="ti8.pdf" width="61%" height="1156px"></iframe>
+        <h2 id="header10">Calculator How To - Sequences and Series</h2>
+        <iframe src="ti9.pdf" width="61%" height="2200px"></iframe>
         
-        <h2 id="header3">Header 3</h2>
+        <h2 id="header11">Header 3</h2>
         <p>Body text for Header 3</p>
         
-        <h2 id="header4">Header 4</h2>
+        <h2 id="header12">Header 4</h2>
         <p>Body text for Header 4</p>
         
-        <h2 id="header5">Header 5</h2>
+        <h2 id="header13">Header 5</h2>
         <p>Body text for Header 5</p>
         
-        <h2 id="header6">Header 6</h2>
+        <h2 id="header14">Header 6</h2>
         <p>Body text for Header 6</p>
         
-        <h2 id="header7">Header 7</h2>
+        <h2 id="header15">Header 7</h2>
         <p>Body text for Header 7</p>
         
-        <script>
-            document.getElementById("toggleButton").addEventListener(
-                "change",
-                function() {
-                    document.body.classList.toggle(
-                        "modified-background");
-                    document.body.classList.toggle(
-                        "modified-text");
-                    
-                    var isModifiedBackground = document.body
-                        .classList.contains(
-                        "modified-background");
-                    var isModifiedText = document.body.classList
-                        .contains("modified-text");
-                    
-                    localStorage.setItem("backgroundModified",
-                        isModifiedBackground);
-                    localStorage.setItem("textModified",
-                        isModifiedText);
-                });
-            
-            window.addEventListener("DOMContentLoaded", function() {
-                var isModifiedBackground = localStorage
-                    .getItem("backgroundModified");
-                var isModifiedText = localStorage.getItem(
-                    "textModified");
-                
-                if (isModifiedBackground === "true") {
-                    document.body.classList.add(
-                        "modified-background");
-                }
-                if (isModifiedText === "true") {
-                    document.body.classList.add(
-                        "modified-text");
-                }
-            });
-        </script>
+        <input type="image" id="totop" class="gototop" src="up.png" alt="totop" onclick="scrollToTop()">
+            <label for="totop" class="totoplabel"></label>
+            <div class="toplabel">
+                <span id="topspan">return to top</span>
+            </div>
+
+            <p><br><br><br><br></p>
+        
+        <script src="toggle.js"></script>
     </body>
     
 </html>

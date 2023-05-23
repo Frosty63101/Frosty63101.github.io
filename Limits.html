@@ -3,110 +3,14 @@
     
     <head>
         <title>Limits</title>
-        <style>
-            .modified-background {
-                background-color: #ffffff;
-            }
-            
-            .modified-text {
-                color: #000000;
-            }
-            
-            body {
-                background-color: #000000;
-                color: #ffffff;
-            }
-            
-            header {
-                background-color: #1ea7b9;
-                padding: 20px;
-            }
-            
-            header h1 {
-                color: #000000;
-                margin: 0;
-                font-size: 30px;
-            }
-            
-            nav ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            
-            nav li {
-                display: inline;
-                margin-right: 10px;
-            }
-            
-            nav a {
-                text-decoration: none;
-                color: #333;
-                font-size: 20px;
-            }
-            
-            .content {
-                margin: 20px;
-            }
-            
-            .toggle-input {
-                display: none;
-            }
-            
-            .toggle-label {
-                position: absolute;
-                top: 50px;
-                right: 20px;
-                display: inline-block;
-                width: 40px;
-                height: 20px;
-                background-color: #ccc;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-            
-            .toggle-input:checked+.toggle-label {
-                background-color: #2196F3;
-            }
-            
-            .toggle-label:before {
-                content: "";
-                position: absolute;
-                top: 2px;
-                left: 2px;
-                width: 16px;
-                height: 16px;
-                background-color: white;
-                border-radius: 50%;
-                transition: transform 0.3s;
-            }
-            
-            .toggle-input:checked+.toggle-label:before {
-                transform: translateX(20px);
-            }
-            
-            .label {
-                position: absolute;
-                top: 50px;
-                right: 65px;
-                color: #000000;
-            }
-        </style>
-        <script>
-            function scrollToElement(elementId) {
-                var element = document.getElementById(elementId);
-                element.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
-        </script>
+        <script src="art.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="scroll.js"></script>
     </head>
     
-    <body>
+    <body id="top">
         <Header>
-            <h1>Limits</h1>
-            
+            <h1 id="top">Limits</h1>
             <nav>
                 <ul>
                     <li><a href="CheatSheet.html">Return</a></li>
@@ -120,27 +24,25 @@
             <p>
                 
             </p>
-            <nav>
                 <ul>
-                    <li><a href="#" onclick="scrollToElement('header1'); return false;">Finding Limits Graphically (One Sided)</a></li>
-                    <li><a href="#" onclick="scrollToElement('header2'); return false;">Piecewise Limits</a></li>
-                    <li><a href="#" onclick="scrollToElement('header3'); return false;">Limits of Rational Functions</a></li>
-                    <li><a href="#" onclick="scrollToElement('header4'); return false;">Continuity with k</a></li>
-                    <li><a href="#" onclick="scrollToElement('header5'); return false;">Different Kinds of Discontinuity</a></li>
-                    <li><a href="#" onclick="scrollToElement('header6'); return false;">Limits to Infinity (Type 1)</a></li>
-                    <li><a href="#" onclick="scrollToElement('header7'); return false;">Limits to Positive or Negative Infinity</a></li>
-                    <li><a href="#" onclick="scrollToElement('header8'); return false;">AROC</a></li>
-                    <li><a href="#" onclick="scrollToElement('header9'); return false;">Write Derivative as a Limit (h → 0 only)</a></li>
-                    <li><a href="#" onclick="scrollToElement('header10'); return false;">Write Derivative as a Limit</a></li>
-                    <li><a href="#" onclick="scrollToElement('header11'); return false;">Determining Differentiability from a Graph</a></li>
+                    <li><a href="#" onclick="scrollToElement('header1'); return false;">Finding Limits Graphically (One Sided)</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header2'); return false;">Piecewise Limits</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header3'); return false;">Limits of Rational Functions</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header4'); return false;">Continuity with k</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header5'); return false;">Different Kinds of Discontinuity</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header6'); return false;">Limits to Infinity (Type 1)</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header7'); return false;">Limits to Positive or Negative Infinity</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header8'); return false;">AROC</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header9'); return false;">Write Derivative as a Limit (h → 0 only)</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header10'); return false;">Write Derivative as a Limit</a></li><br>
+                    <li><a href="#" onclick="scrollToElement('header11'); return false;">Determining Differentiability from a Graph</a></li><br>
                 </ul>
-            </nav>
             
             <input type="checkbox" id="toggleButton"
                 class="toggle-input">
             <label for="toggleButton" class="toggle-label"><br></label>
             <div class="label">
-                <span>Toggle Light/Dark Modes</span>
+                <span id="spantoggle">Toggle Light/Dark Modes</span>
             </div>
             
         </Header>
@@ -241,57 +143,27 @@
         </p>
         <h2 id="header11">Determining Differentiability from a Graph</h2>
         <p>
-            Identify points of interest: Examine the graph to identify points where you suspect differentiability <br>
-            might be an issue, such as sharp corners, cusps, or points where the graph has a discontinuity.<br>
-            Check continuity: Before determining differentiability, ensure that the function is continuous at <br>
+            <li>Identify points of interest: Examine the graph to identify points where you suspect differentiability <br>
+            might be an issue, such as sharp corners, cusps, or points where the graph has a discontinuity.</li><br>
+            <li>Check continuity: Before determining differentiability, ensure that the function is continuous at <br>
             the point of interest. A function must be continuous at a point for it to be differentiable at that point. <br>
-            Look for any breaks or jumps in the graph that might indicate a lack of continuity.<br>
-            Check for sharp corners: If the graph has a sharp corner at the point of interest, it indicates a potential <br>
+            Look for any breaks or jumps in the graph that might indicate a lack of continuity.</li><br>
+            <li>Check for sharp corners: If the graph has a sharp corner at the point of interest, it indicates a potential <br>
             non-differentiability. At a sharp corner, the tangent lines on either side of the corner would have different <br>
-            slopes, making it impossible for the function to have a well-defined derivative at that point.<br>
-            Look for vertical tangents: Vertical tangents occur when the slope of the tangent line becomes infinite. <br>
-            If you observe a vertical tangent on the graph, it indicates a lack of differentiability at that point.<br>
+            slopes, making it impossible for the function to have a well-defined derivative at that point.</li><br>
+            <li>Look for vertical tangents: Vertical tangents occur when the slope of the tangent line becomes infinite. <br>
+            If you observe a vertical tangent on the graph, it indicates a lack of differentiability at that point.</li><br>
         </p>
-        
-        <p><br><br><br><br></p>
 
-        <script>
-            document.getElementById("toggleButton").addEventListener(
-                "change",
-                function() {
-                    document.body.classList.toggle(
-                        "modified-background");
-                    document.body.classList.toggle(
-                        "modified-text");
-                    
-                    var isModifiedBackground = document.body
-                        .classList.contains(
-                            "modified-background");
-                    var isModifiedText = document.body.classList
-                        .contains("modified-text");
-                    
-                    localStorage.setItem("backgroundModified",
-                        isModifiedBackground);
-                    localStorage.setItem("textModified",
-                        isModifiedText);
-                });
-            
-            window.addEventListener("DOMContentLoaded", function() {
-                var isModifiedBackground = localStorage
-                    .getItem("backgroundModified");
-                var isModifiedText = localStorage.getItem(
-                    "textModified");
-                
-                if (isModifiedBackground === "true") {
-                    document.body.classList.add(
-                        "modified-background");
-                }
-                if (isModifiedText === "true") {
-                    document.body.classList.add(
-                        "modified-text");
-                }
-            });
-        </script>
+        <input type="image" id="totop" class="gototop" src="up.png" alt="totop" onclick="scrollToTop()">
+            <label for="totop" class="totoplabel"></label>
+            <div class="toplabel">
+                <span id="topspan">return to top</span>
+            </div>
+
+            <p><br><br><br><br></p>
+        
+        <script src="toggle.js"></script>
     </body>
     
 </html>
