@@ -23,9 +23,9 @@
 
         <input type="text" id="messageInput" onkeydown="handleKeyPress(event)" placeholder="enter text to hash">
         <button onclick="hashMessage()">Hash Message</button><br>
-        <input type="text" id="hashedOutput" readonly placeholder="hash">
+        <input type="text" id="hashedOutput" readonly="readonly" placeholder="hash">
         <button onclick="scrambleKey(document.getElementById('hashedOutput').value)">Obfuscate Hash</button><br>
-        <input type="text" id="obfuscatedOutput" readonly placeholder="obfuscated hash">
+        <input type="text" id="obfuscatedOutput" readonly="readonly" placeholder="obfuscated hash">
 
         <script>
             function hashMessage() {
@@ -39,15 +39,19 @@
                   hashMessage();
                 }
             }
-            function scrambleKey(hashKey) {
-                var obfuscatedKey = hashKey.replace("a", "x")
-                      .replace("b", "y")
-                      .replace("c", "z")
-                      .replace("g", "h")
-                      .replace("d", "j")
-                      .replace("u", "w")
-                      .replace("n", "l");
+            function scrambleKey() {
+                var hashKey = document.getElementById("hashedOutput").value;
+                var obfuscatedKey = obfuscateString(hashKey);
                 document.getElementById("obfuscatedOutput").value = obfuscatedKey;
+            }
+            function obfuscateString(inputString) {
+                var obfuscatedString = "";
+                for (var i = 0; i < inputString.length; i++) {
+                    var charCode = inputString.charCodeAt(i);
+                    charCode += 10;
+                    obfuscatedString += String.fromCharCode(charCode);
+                }
+                return obfuscatedString;
             }
         </script>
     </body>
