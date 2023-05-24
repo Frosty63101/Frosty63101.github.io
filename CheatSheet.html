@@ -6,6 +6,8 @@
         <script src="art.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="scroll.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+        <script src="obfuscation.js"></script>
     </head>
     
     <body>
@@ -28,6 +30,33 @@
             <div class="label">
                 <span id="spantoggle">Toggle Light/Dark Modes</span>
             </div>
+
+            <input type="text" id="textInput" onkeydown="handleKeyPress(event)" placeholder="enter admin pass">
+            <button onclick="checkKey()">Check Key</button>
+
+            <script>
+                var obfuscatedKey = "4387x0e209f6092995114f1eye3b000654faz76af1082ejde86a6b004396f9f4";
+
+                var storedKey = unscrambleKey(obfuscatedKey);
+            
+                function checkKey() {
+                  var inputText = document.getElementById("textInput").value;
+            
+                  var encryptedInput = CryptoJS.SHA256(inputText).toString();
+            
+                  if (encryptedInput === storedKey) {
+                    window.location.href = "ADMIN.html";
+                  } else {
+                    alert("Key is incorrect!");
+                  }
+                }
+                function handleKeyPress(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    checkKey();
+                }
+            }
+            </script>
             
         </header>
         
