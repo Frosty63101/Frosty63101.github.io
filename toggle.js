@@ -48,9 +48,10 @@ window.addEventListener("DOMContentLoaded", function() {
             "modified-text");
         topspan.classList.add(
             "modified-text");
-        img.src = "up.png";
-        spantoggle.classlist.add(
+        spantoggle.classList.add(
             "modified-text");
+        img.src = "up.png";
+        
     }
     else {
         img.src = "up 2.png";
