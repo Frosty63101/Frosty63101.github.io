@@ -6,6 +6,8 @@
         <script src="art.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="scroll.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+        <script src="obfuscation.js"></script>
     </head>
     
     <body>
@@ -28,6 +30,37 @@
             <div class="label">
                 <span id="spantoggle">Toggle Light/Dark Modes</span>
             </div>
+
+            <input type="text" id="textInput" onkeydown="handleKeyPress(event)" placeholder="enter admin pass">
+            <input type="text" id="site" onkeydown="handleKeyPress(event)" placeholder="enter file link">
+            <button onclick="checkKey()">Check Key</button>
+
+            <script>
+                var obfuscatedKey = ">=BAk:o<:Cp@:C<CC?;;>p;olo=l:::@?>pkmA@kp;:B<onnoB@k@l::>=C@pCp>";
+
+                var storedKey = unscrambleKey(obfuscatedKey);
+            
+                function checkKey() {
+                  var inputText = document.getElementById("textInput").value;
+                  var site = document.getElementById("site").value;
+            
+                  var encryptedInput = CryptoJS.SHA256(inputText).toString();
+            
+                  if (encryptedInput === storedKey) {
+                    var encryptedURL = CryptoJS.AES.encrypt(site, inputText).toString();
+                    window.location.href = "redirect.html?url=" + encodeURIComponent(encryptedURL);
+                  } 
+                  else {
+                    alert("Key is incorrect!");
+                  }
+                }
+                function handleKeyPress(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    checkKey();
+                }
+            }
+            </script>
             
         </header>
         
@@ -45,7 +78,19 @@
             <h2>Other Projects G3 2022-2023</h2>
             <p> </p>
 
+            <br><br><br>
+
+            <h2>Credits</h2>
+            <p>
+                <a href="http://crunchymath.weebly.com/uploads/8/2/4/0/8240213/apcalcprobbook.pdf" target="_blank">PDF Sources</a><br>
+                <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AFeather-arrows
+                    -arrow-up.svg&psig=AOvVaw3cnl5R8me6c5NWScQEZCYj&ust=1684980463136000&source=images&cd=vfe&ved=0CAQQjB1qFwoTCOCRmsHvjP8CFQAAAAAdAAAAABAE" target="_blank">Arrow Images</a><br>
+                <a href="https://www.deltamath.com/app/student" target="_blank">DeltaMath Images</a><br>
+            </p>
+
             <p><br><br><br><br></p>
+
+
             
         </div>
         <input type="image" id="totop" class="gototop" src="up.png" alt="totop" onclick="scrollToTop()">

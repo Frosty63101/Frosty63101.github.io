@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>redirect</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <script>
+        var encryptedURL = decodeURIComponent(window.location.search).substring(5);
+
+        var inputText = "07122005";
+
+        var decryptedURL = CryptoJS.AES.decrypt(encryptedURL, inputText).toString(CryptoJS.enc.Utf8);
+
+        window.location.href = decryptedURL;
+    </script>
+</body>
+</html>

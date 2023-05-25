@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>ADMIN</title>
+        <script src="art.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="scroll.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+        <script src="obfuscation.js"></script>
+    </head>
+    
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="CheatSheet.html">Return</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <br><br><br><br>
+
+        <input type="text" id="messageInput" onkeydown="handleKeyPress(event)" placeholder="enter text to hash">
+        <button onclick="hashMessage()">Hash Message</button><br>
+        <input type="text" id="hashedOutput" readonly="readonly" placeholder="hash">
+        <button onclick="scrambleKey(document.getElementById('hashedOutput').value)">Obfuscate Hash</button><br>
+        <input type="text" id="obfuscatedOutput" readonly="readonly" placeholder="obfuscated hash">
+
+        <script>
+            function hashMessage() {
+                var message = document.getElementById("messageInput").value;
+                var hash = CryptoJS.SHA256(message).toString();
+                document.getElementById("hashedOutput").value = hash;
+            }
+            function handleKeyPress(event) {
+                if (event.keyCode === 13) {
+                  event.preventDefault(); 
+                  hashMessage();
+                }
+            }
+            function scrambleKey() {
+                var hashKey = document.getElementById("hashedOutput").value;
+                var obfuscatedKey = obfuscateString(hashKey);
+                document.getElementById("obfuscatedOutput").value = obfuscatedKey;
+            }
+            function obfuscateString(inputString) {
+                var obfuscatedString = "";
+                for (var i = 0; i < inputString.length; i++) {
+                    var charCode = inputString.charCodeAt(i);
+                    charCode += 10;
+                    obfuscatedString += String.fromCharCode(charCode);
+                }
+                return obfuscatedString;
+            }
+        </script>
+    </body>
+</html>
