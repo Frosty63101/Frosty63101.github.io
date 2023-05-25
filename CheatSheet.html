@@ -49,9 +49,11 @@
                   var site = document.getElementById("site").value;
             
                   var encryptedInput = CryptoJS.SHA256(inputText).toString();
+
+                  var wholeKey = wholeKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, obfucatedKeyFour);
             
                   if (encryptedInput === storedKey) {
-                    var encryptedURL = CryptoJS.AES.encrypt(site, inputText).toString();
+                    var encryptedURL = CryptoJS.AES.encrypt(site, wholeKey).toString();
                     window.location.href = "redirect.html?url=" + encodeURIComponent(encryptedURL);
                   } 
                   else {

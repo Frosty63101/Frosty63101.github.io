@@ -4,6 +4,11 @@ function unscrambleKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, ob
     return deobfuscatedKey;
 }
 
+function wholeKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, obfucatedKeyFour) {
+    var obfuscatedKey = obfuscatedKeyOne + obfucatedKeyThree + obfuscatedKeyTwo + obfucatedKeyFour;
+    return obfuscatedKey;
+}
+
 function deobfuscateString(inputString) {
     var deobfuscatedString = "";
     for (var i = 0; i < inputString.length; i++) {
