@@ -14,9 +14,15 @@
         <header>
             <nav>
                 <ul>
+                    <h1>ADMIN</h1><br>
                     <li><a href="CheatSheet.html">Return</a></li>
                 </ul>
             </nav>
+            <input type="checkbox" id="toggleButton" class="toggle-input">
+            <label for="toggleButton" class="toggle-label"><br></label>
+            <div class="label">
+                <span id="spantoggle">Toggle Light/Dark Modes</span>
+            </div>
         </header>
 
         <br><br><br><br>
@@ -54,5 +60,30 @@
                 return obfuscatedString;
             }
         </script>
+
+        <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var reloaded = localStorage.getItem('reloaded');
+
+            if (!reloaded) {
+                localStorage.setItem('reloaded', 'true');
+            } 
+            else {
+                console.log("Page is being reloaded...");
+                localStorage.removeItem('reloaded');
+                window.location.href = "CheatSheet.html";
+            }
+        });
+
+
+        </script>
+
+        <input type="image" id="totop" class="gototop" src="up.png" alt="totop" onclick="scrollToTop()">
+        <label for="totop" class="totoplabel"></label>
+        <div class="toplabel">
+            <span id="topspan">return to top</span>
+        </div>
+    
+        <script src="toggle.js"></script>
     </body>
 </html>

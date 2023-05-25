@@ -1,4 +1,5 @@
-function unscrambleKey(obfuscatedKey) {
+function unscrambleKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, obfucatedKeyFour) {
+    var obfuscatedKey = obfuscatedKeyOne + obfucatedKeyThree + obfuscatedKeyTwo + obfucatedKeyFour;
     var deobfuscatedKey = deobfuscateString(obfuscatedKey);
     return deobfuscatedKey;
 }
