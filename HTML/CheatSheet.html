@@ -6,9 +6,7 @@
         <script src="../JS/art.js"></script>
         <link rel="stylesheet" type="text/css" href="../CSS/style.css">
         <script src="../js/scroll.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/pbkdf2.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
         <script src="../js/obfuscation.js"></script>
     </head>
     
@@ -35,27 +33,28 @@
 
             <input type="text" id="textInput" onkeydown="handleKeyPress(event)" placeholder="enter admin pass">
             <input type="text" id="site" onkeydown="handleKeyPress(event)" placeholder="enter file link">
+            <input type="text" id="intermediary" onkeydown="handleKeyPress(event)" placeholder="intermediary">
             <button onclick="checkKey()">Check Key</button>
 
             <script>
-                const obfuscatedKeyOne = ">=BAk:o<:Cp@:";
-                const obfuscatedKeyTwo = "pkmA@kp;:B<onnoB";
-                const obfucatedKeyThree = "C<CC?;;>p;olo=l:::@?>";
-                const obfucatedKeyFour = "@k@l::>=C@pCp>"
+                const obfuscatedKeyOne = "*=.AW:[<&C\\@&C(C/?';";
+                const obfuscatedKeyTwo = "kYA,k\\;&B(oZn[";
+                const obfuscatedKeyThree = "*p'oXo)l&:&@+>\\";
+                const obfuscatedKeyFour = "B,k,l&:*=/@\\C\\>";
 
-                var storedKey = unscrambleKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, obfucatedKeyFour);
+                var storedKey = unscrambleKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfuscatedKeyThree, obfuscatedKeyFour);
             
                 function checkKey() {
                   var inputText = document.getElementById("textInput").value;
-                  var site = document.getElementById("site").value;
+                  var site = document.getElementById("site").value + ".html";
             
                   var encryptedInput = CryptoJS.SHA256(inputText).toString();
 
-                  var entireKey = wholeKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, obfucatedKeyFour);
+                  var entireKey = wholeKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfuscatedKeyThree, obfuscatedKeyFour);
             
                   if (encryptedInput === storedKey) {
                     var encryptedURL = CryptoJS.AES.encrypt(site, entireKey).toString();
-                    window.location.href = "../HTML/redirect.html?url=" + encodeURIComponent(encryptedURL);
+                    window.location.href = "../HTML/" + document.getElementById("intermediary").value + ".html?url=" + encodeURIComponent(encryptedURL);
                   } 
                   else {
                     alert("Key is incorrect!");

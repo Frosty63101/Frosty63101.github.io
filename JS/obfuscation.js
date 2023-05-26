@@ -10,11 +10,17 @@ function wholeKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, obfucat
 }
 
 function deobfuscateString(inputString) {
-    var deobfuscatedString = "";
-    for (var i = 0; i < inputString.length; i++) {
+    var deobfuscatedStrings = "";
+    for (var i = 0; i < inputString.length;) {
+        var charCode = inputString.charCodeAt(i);
+        charCode += 10; // reverse the character code modification
+        deobfuscatedStrings += String.fromCharCode(charCode);
+        i++;
         var charCode = inputString.charCodeAt(i);
         charCode -= 10; // reverse the character code modification
-        deobfuscatedString += String.fromCharCode(charCode);
+        deobfuscatedStrings += String.fromCharCode(charCode);
+        i++
     }
-    return deobfuscatedString;
+    console.log();
+    return deobfuscatedStrings;
   }

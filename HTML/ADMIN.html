@@ -52,10 +52,15 @@
             }
             function obfuscateString(inputString) {
                 var obfuscatedString = "";
-                for (var i = 0; i < inputString.length; i++) {
+                for (var i = 0; i < inputString.length;) {
+                    var charCode = inputString.charCodeAt(i);
+                    charCode -= 10;
+                    obfuscatedString += String.fromCharCode(charCode);
+                    i++
                     var charCode = inputString.charCodeAt(i);
                     charCode += 10;
                     obfuscatedString += String.fromCharCode(charCode);
+                    i++
                 }
                 return obfuscatedString;
             }
