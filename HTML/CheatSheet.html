@@ -3,11 +3,11 @@
     
     <head>
         <title>Calculus Cheat Sheets</title>
-        <script src="art.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="scroll.js"></script>
+        <script src="../JS/art.js"></script>
+        <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+        <script src="../js/scroll.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-        <script src="obfuscation.js"></script>
+        <script src="../js/obfuscation.js"></script>
     </head>
     
     <body>
@@ -16,13 +16,13 @@
             <h1>Calculus Cheat Sheets</h1>
             <nav>
                 <ul>
-                    <li><a href="Limits.html">Limits</a></li>
-                    <li><a href="Derivitives.html">Derivitives</a></li>
-                    <!--<li><a href="DerivitivesApplicationsCon.html">Derivitive Apps Context</a></li>
-                    <li><a href="DerivitiveApplicationsAny.html">Derivitive Apps Anylitical</a></li>-->
-                    <li><a href="Antidervitives.html">Antiderivitives</a></li>
-                    <li><a href="Calculator.html">Calculator</a></li>
-                    <li><a href="ADMIN.html">ADMIN</a></li>
+                    <li><a href="../HTML/Limits.html">Limits</a></li>
+                    <li><a href="../HTML/Derivitives.html">Derivitives</a></li>
+                    <li><a href="../HTML/DerivitivesApplicationsCon.html">Derivitive Apps Context</a></li>
+                    <li><a href="../HTML/DerivitiveApplicationsAny.html">Derivitive Apps Anylitical</a></li>
+                    <li><a href="../HTML/Antidervitives.html">Antiderivitives</a></li>
+                    <li><a href="../HTML/Calculator.html">Calculator</a></li>
+                    <li><a href="../HTML/ADMIN.html">ADMIN</a></li>
                 </ul>
             </nav>
             
@@ -54,7 +54,7 @@
             
                   if (encryptedInput === storedKey) {
                     var encryptedURL = CryptoJS.AES.encrypt(site, entireKey).toString();
-                    window.location.href = "redirect.html?url=" + encodeURIComponent(encryptedURL);
+                    window.location.href = "../HTML/redirect.html?url=" + encodeURIComponent(encryptedURL);
                   } 
                   else {
                     alert("Key is incorrect!");
@@ -99,13 +99,13 @@
 
             
         </div>
-        <input type="image" id="totop" class="gototop" src="up.png" alt="totop" onclick="scrollToTop()">
+        <input type="image" id="totop" class="gototop" src="../IMAGES/up.png" alt="totop" onclick="scrollToTop()">
             <label for="totop" class="totoplabel"></label>
             <div class="toplabel">
                 <span id="topspan">return to top</span>
             </div>
         
-    <script src="toggle.js"></script>
+    <script src="../JS/toggle.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
             localStorage.removeItem('reloaded');

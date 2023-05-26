@@ -18,10 +18,10 @@ document.getElementById("toggleButton").addEventListener(
             .contains("modified-text");
 
         if (isModifiedText === true) {
-            img.src = "up.png";
+            img.src = "../IMAGES/up.png";
         }
         else {
-            img.src = "up 2.png";
+            img.src = "../IMAGES/up 2.png";
         }
 
         localStorage.setItem("backgroundModified",
@@ -50,11 +50,11 @@ window.addEventListener("DOMContentLoaded", function() {
             "modified-text");
         spantoggle.classList.add(
             "modified-text");
-        img.src = "up.png";
+        img.src = "../IMAGES/up.png";
         
     }
     else {
-        img.src = "up 2.png";
+        img.src = "../IMAGES/up 2.png";
     }
     
 });

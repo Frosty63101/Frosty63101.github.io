@@ -3,11 +3,11 @@
     
     <head>
         <title>ADMIN</title>
-        <script src="art.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="scroll.js"></script>
+        <script src="../JS/art.js"></script>
+        <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+        <script src="..//JS/scroll.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-        <script src="obfuscation.js"></script>
+        <script src="../JS/obfuscation.js"></script>
     </head>
     
     <body>
@@ -15,7 +15,7 @@
             <nav>
                 <ul>
                     <h1>ADMIN</h1><br>
-                    <li><a href="CheatSheet.html">Return</a></li>
+                    <li><a href="../HTML/CheatSheet.html">Return</a></li>
                 </ul>
             </nav>
             <input type="checkbox" id="toggleButton" class="toggle-input">
@@ -71,19 +71,19 @@
             else {
                 console.log("Page is being reloaded...");
                 localStorage.removeItem('reloaded');
-                window.location.href = "CheatSheet.html";
+                window.location.href = "../HTML/CheatSheet.html";
             }
         });
 
 
         </script>
 
-        <input type="image" id="totop" class="gototop" src="up.png" alt="totop" onclick="scrollToTop()">
+        <input type="image" id="totop" class="gototop" src="../IMAGES/up.png" alt="totop" onclick="scrollToTop()">
         <label for="totop" class="totoplabel"></label>
         <div class="toplabel">
             <span id="topspan">return to top</span>
         </div>
     
-        <script src="toggle.js"></script>
+        <script src="../JS/toggle.js"></script>
     </body>
 </html>
