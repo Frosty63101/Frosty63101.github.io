@@ -18,10 +18,11 @@
                 <ul>
                     <li><a href="Limits.html">Limits</a></li>
                     <li><a href="Derivitives.html">Derivitives</a></li>
-                    <li><a href="DerivitivesApplicationsCon.html">Derivitive Apps Context</a></li>
-                    <li><a href="DerivitiveApplicationsAny.html">Derivitive Apps Anylitical</a></li>
+                    <!--<li><a href="DerivitivesApplicationsCon.html">Derivitive Apps Context</a></li>
+                    <li><a href="DerivitiveApplicationsAny.html">Derivitive Apps Anylitical</a></li>-->
                     <li><a href="Antidervitives.html">Antiderivitives</a></li>
                     <li><a href="Calculator.html">Calculator</a></li>
+                    <li><a href="ADMIN.html">ADMIN</a></li>
                 </ul>
             </nav>
             
@@ -36,18 +37,23 @@
             <button onclick="checkKey()">Check Key</button>
 
             <script>
-                var obfuscatedKey = ">=BAk:o<:Cp@:C<CC?;;>p;olo=l:::@?>pkmA@kp;:B<onnoB@k@l::>=C@pCp>";
+                const obfuscatedKeyOne = ">=BAk:o<:Cp@:";
+                const obfuscatedKeyTwo = "pkmA@kp;:B<onnoB";
+                const obfucatedKeyThree = "C<CC?;;>p;olo=l:::@?>";
+                const obfucatedKeyFour = "@k@l::>=C@pCp>"
 
-                var storedKey = unscrambleKey(obfuscatedKey);
+                var storedKey = unscrambleKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, obfucatedKeyFour);
             
                 function checkKey() {
                   var inputText = document.getElementById("textInput").value;
                   var site = document.getElementById("site").value;
             
                   var encryptedInput = CryptoJS.SHA256(inputText).toString();
+
+                  var entireKey = wholeKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfucatedKeyThree, obfucatedKeyFour);
             
                   if (encryptedInput === storedKey) {
-                    var encryptedURL = CryptoJS.AES.encrypt(site, inputText).toString();
+                    var encryptedURL = CryptoJS.AES.encrypt(site, entireKey).toString();
                     window.location.href = "redirect.html?url=" + encodeURIComponent(encryptedURL);
                   } 
                   else {
@@ -100,6 +106,11 @@
             </div>
         
     <script src="toggle.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            localStorage.removeItem('reloaded');
+        });
+    </script>
     </body>
     
 </html>
