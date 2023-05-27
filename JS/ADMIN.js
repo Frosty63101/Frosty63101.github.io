@@ -126,6 +126,32 @@ function evaluateDerivative() {
     }
 }
 
+
+function evaluateIntegral() {
+    var equationI = document.getElementById("integralInput").value;
+    var lowerBound = parseFloat(document.getElementById("lowerBound").value);
+    var upperBound = parseFloat(document.getElementById("upperBound").value);
+    var numIntervals = parseInt(document.getElementById("numIntervals").value);
+
+    try {
+        var h = (upperBound - lowerBound) / numIntervals;
+        var sum = 0;
+        var x;
+
+        for (var i = 1; i < numIntervals; i++) {
+            x = lowerBound + i * h;
+            sum += math.evaluate(equationI, { x: x });
+        }
+
+        var integral = (h / 2) * (math.evaluate(equationI, { x: lowerBound }) + math.evaluate(equationI, { x: upperBound }) + 2 * sum);
+
+        document.getElementById("integralOut").value = integral;
+    } catch (error) {
+        document.getElementById("integralOut").value = "Error: Invalid equation";
+    }
+}
+
+
 const equationTextbox = document.getElementById('equationInput');
 equationTextbox.addEventListener('input', function() {
     solveEquation();
@@ -138,8 +164,6 @@ derivativeTextbox.addEventListener('input', function() {
     evaluateDerivative();
     console.log('Textbox content updated:', textbox.value);
 });
-
-
 
 
 function handleKeyPressSolveEquation(event) {
