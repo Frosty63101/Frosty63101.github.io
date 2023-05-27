@@ -102,3 +102,22 @@ nav a {
     bottom: 50px;
     right: 20px;
 }
+
+.anim {
+    animation: fade-in 0.9s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-4em);
+    }
+    16% {
+        opacity: 0;
+        transform: translateX(-4em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
