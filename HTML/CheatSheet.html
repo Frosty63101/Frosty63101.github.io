@@ -37,28 +37,72 @@
             <button onclick="checkKey()">Check Key</button>
 
             <script>
-                const obfuscatedKeyOne = "*=.AW:[<&C\\@&C(C/?';";
-                const obfuscatedKeyTwo = "kYA,k\\;&B(oZn[";
-                const obfuscatedKeyThree = "*p'oXo)l&:&@+>\\";
-                const obfuscatedKeyFour = "B,k,l&:*=/@\\C\\>";
+                const obfuscatedKeyOne = "nYA+<-:,nW@)A)k(";
+                const obfuscatedKeyTwo = "Y:(>Zp\\:+m&<,o\\";
+                const obfuscatedKeyThree = "<&l+C,oXo.<[<-k&<";
+                const obfuscatedKeyFour = "@Z<[nX<'@W;.=/nX";
 
                 var storedKey = unscrambleKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfuscatedKeyThree, obfuscatedKeyFour);
             
                 function checkKey() {
                   var inputText = document.getElementById("textInput").value;
                   var site = document.getElementById("site").value + ".html";
-            
-                  var encryptedInput = CryptoJS.SHA256(inputText).toString();
-
+                    
+                  var encryptOne = CryptoJS.SHA256(inputText).toString()
+                  
+                  var encryptedInput = CryptoJS.SHA256(encryptOne).toString();
+                  
+                  var obEncryptedInput = obfuscateString(encryptedInput);
+                  
+                  var encryptedInputTwo = CryptoJS.SHA256(obEncryptedInput).toString();
+                  
+                  var obEncryptedInputTwo = obfuscateStringTWO(encryptedInputTwo);
+                  
+                  var fixedobEncryptedInputTwo = addBackslashes(obEncryptedInputTwo);
+                  
                   var entireKey = wholeKey(obfuscatedKeyOne, obfuscatedKeyTwo, obfuscatedKeyThree, obfuscatedKeyFour);
-            
-                  if (encryptedInput === storedKey) {
+
+                  entireKey = addBackslashes(entireKey);
+                  
+                  if (fixedobEncryptedInputTwo === entireKey) {
                     var encryptedURL = CryptoJS.AES.encrypt(site, entireKey).toString();
                     window.location.href = "../HTML/" + document.getElementById("intermediary").value + ".html?url=" + encodeURIComponent(encryptedURL);
                   } 
                   else {
                     alert("Key is incorrect!");
                   }
+                }
+                function obfuscateString(inputString) {
+                    var obfuscatedString = "";
+                    for (var i = 0; i < inputString.length;) {
+                        var charCode = inputString.charCodeAt(i);
+                        charCode -= 10;
+                        obfuscatedString += String.fromCharCode(charCode);
+                        i++
+                        var charCode = inputString.charCodeAt(i);
+                        charCode += 10;
+                        obfuscatedString += String.fromCharCode(charCode);
+                        i++
+                    }
+                    return obfuscatedString;
+                }
+                function obfuscateStringTWO(inputStringTwo) {
+                    var obfuscatedStringTwo = "";
+                    for (var i = 0; i < inputStringTwo.length;) {
+                        var charCodeTwo = inputStringTwo.charCodeAt(i);
+                        charCodeTwo += 10;
+                        obfuscatedStringTwo += String.fromCharCode(charCodeTwo);
+                        i++
+                        var charCodeTwo = inputStringTwo.charCodeAt(i);
+                        charCodeTwo -= 10;
+                        obfuscatedStringTwo += String.fromCharCode(charCodeTwo);
+                        i++
+                    }
+                    return obfuscatedStringTwo;
+                }
+                function addBackslashes(input) {
+                var output = input.replace(/\\/g, '\\\\');
+                return output;
                 }
                 function handleKeyPress(event) {
                 if (event.keyCode === 13) {

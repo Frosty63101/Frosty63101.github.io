@@ -29,7 +29,10 @@
 
         <input type="text" id="messageInput" placeholder="enter text to hash">
         <input type="text" id="hashedOutput" readonly="readonly" placeholder="hash">
+        <input type="text" id="hashedOutputTwo" readonly="readonly" placeholder="hash two">
         <input type="text" id="obfuscatedOutput" readonly="readonly" placeholder="obfuscated hash">
+        <input type="text" id="hashThree" readonly="readonly" placeholder="rehash">
+        <input type="text" id="obfuscatedOutputTwo" readonly="readonly" placeholder="obfuscated hash">
         <input type="text" id="backslashes" readonly="readonly" placeholder="fixed backslashes">
 
         <script>
@@ -38,10 +41,25 @@
                 var hash = CryptoJS.SHA256(message).toString();
                 document.getElementById("hashedOutput").value = hash;
             }
+            function hashMessageTwo() {
+                var messageTwo = document.getElementById("hashedOutput").value;
+                var hashTwo = CryptoJS.SHA256(messageTwo).toString();
+                document.getElementById("hashedOutputTwo").value = hashTwo;
+            }
             function scrambleKey() {
-                var hashKey = document.getElementById("hashedOutput").value;
+                var hashKey = document.getElementById("hashedOutputTwo").value;
                 var obfuscatedKey = obfuscateString(hashKey);
                 document.getElementById("obfuscatedOutput").value = obfuscatedKey;
+            }
+            function hashMessageThree() {
+                var messageThree = document.getElementById("obfuscatedOutput").value;
+                var hashThree = CryptoJS.SHA256(messageThree).toString();
+                document.getElementById("hashThree").value = hashThree;
+            }
+            function scrambleKeyTwo() {
+                var hashKeyTwo = document.getElementById("hashThree").value;
+                var obfuscatedKeyTwo = obfuscateStringTwo(hashKeyTwo);
+                document.getElementById("obfuscatedOutputTwo").value = obfuscatedKeyTwo;
             }
             function obfuscateString(inputString) {
                 var obfuscatedString = "";
@@ -57,15 +75,32 @@
                 }
                 return obfuscatedString;
             }
+            function obfuscateStringTwo(inputString) {
+                var obfuscatedString = "";
+                for (var i = 0; i < inputString.length;) {
+                    var charCode = inputString.charCodeAt(i);
+                    charCode += 10;
+                    obfuscatedString += String.fromCharCode(charCode);
+                    i++
+                    var charCode = inputString.charCodeAt(i);
+                    charCode -= 10;
+                    obfuscatedString += String.fromCharCode(charCode);
+                    i++
+                }
+                return obfuscatedString;
+            }
             function addBackslashes() {
-                var input = document.getElementById("obfuscatedOutput").value;
+                var input = document.getElementById("obfuscatedOutputTwo").value;
                 var output = input.replace(/\\/g, '\\\\');
                 document.getElementById("backslashes").value = output;
             }
             const textbox = document.getElementById('messageInput');
             textbox.addEventListener('input', function() {
                 hashMessage();
+                hashMessageTwo();
                 scrambleKey();
+                hashMessageThree();
+                scrambleKeyTwo();
                 addBackslashes();
                 console.log('Textbox content updated:', textbox.value);
             });

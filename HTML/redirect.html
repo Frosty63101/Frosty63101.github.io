@@ -8,11 +8,18 @@
     <script>
         var encryptedURL = decodeURIComponent(window.location.search).substring(5);
 
-        var inputText = "*=.AW:[<&C\\@&C(C/?';*p'oXo)l&:&@+>\\kYA,k\\;&B(oZn[B,k,l&:*=/@\\C\\>";
+        var inputText = "nYA+<-:,nW@)A)k(<&l+C,oXo.<[<-k&<Y:(>Zp\\:+m&<,o\\@Z<[nX<'@W;.=/nX";
+
+        inputText = addBackslashes(inputText);
 
         var decryptedURL = CryptoJS.AES.decrypt(encryptedURL, inputText).toString(CryptoJS.enc.Utf8);
 
         window.location.href = decryptedURL;
+
+        function addBackslashes(input) {
+            var output = input.replace(/\\/g, '\\\\');
+            return output;
+        }
     </script>
 </body>
 </html>
