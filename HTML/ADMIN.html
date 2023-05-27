@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        input {
+            width: 600px;
+        }
+    </style>
     
     <head>
         <title>ADMIN</title>
@@ -9,6 +14,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
         <script src="../JS/obfuscation.js"></script>
     </head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
     
     <body>
         <header>
@@ -24,111 +30,39 @@
                 <span id="spantoggle">Toggle Light/Dark Modes</span>
             </div>
         </header>
-
+        
         <br><br><br><br>
-
-        <input type="text" id="messageInput" placeholder="enter text to hash">
-        <input type="text" id="hashedOutput" readonly="readonly" placeholder="hash">
-        <input type="text" id="hashedOutputTwo" readonly="readonly" placeholder="hash two">
-        <input type="text" id="obfuscatedOutput" readonly="readonly" placeholder="obfuscated hash">
-        <input type="text" id="hashThree" readonly="readonly" placeholder="rehash">
-        <input type="text" id="obfuscatedOutputTwo" readonly="readonly" placeholder="obfuscated hash">
-        <input type="text" id="backslashes" readonly="readonly" placeholder="fixed backslashes">
-
-        <script>
-            function hashMessage() {
-                var message = document.getElementById("messageInput").value;
-                var hash = CryptoJS.SHA256(message).toString();
-                document.getElementById("hashedOutput").value = hash;
-            }
-            function hashMessageTwo() {
-                var messageTwo = document.getElementById("hashedOutput").value;
-                var hashTwo = CryptoJS.SHA256(messageTwo).toString();
-                document.getElementById("hashedOutputTwo").value = hashTwo;
-            }
-            function scrambleKey() {
-                var hashKey = document.getElementById("hashedOutputTwo").value;
-                var obfuscatedKey = obfuscateString(hashKey);
-                document.getElementById("obfuscatedOutput").value = obfuscatedKey;
-            }
-            function hashMessageThree() {
-                var messageThree = document.getElementById("obfuscatedOutput").value;
-                var hashThree = CryptoJS.SHA256(messageThree).toString();
-                document.getElementById("hashThree").value = hashThree;
-            }
-            function scrambleKeyTwo() {
-                var hashKeyTwo = document.getElementById("hashThree").value;
-                var obfuscatedKeyTwo = obfuscateStringTwo(hashKeyTwo);
-                document.getElementById("obfuscatedOutputTwo").value = obfuscatedKeyTwo;
-            }
-            function obfuscateString(inputString) {
-                var obfuscatedString = "";
-                for (var i = 0; i < inputString.length;) {
-                    var charCode = inputString.charCodeAt(i);
-                    charCode -= 10;
-                    obfuscatedString += String.fromCharCode(charCode);
-                    i++
-                    var charCode = inputString.charCodeAt(i);
-                    charCode += 10;
-                    obfuscatedString += String.fromCharCode(charCode);
-                    i++
-                }
-                return obfuscatedString;
-            }
-            function obfuscateStringTwo(inputString) {
-                var obfuscatedString = "";
-                for (var i = 0; i < inputString.length;) {
-                    var charCode = inputString.charCodeAt(i);
-                    charCode += 10;
-                    obfuscatedString += String.fromCharCode(charCode);
-                    i++
-                    var charCode = inputString.charCodeAt(i);
-                    charCode -= 10;
-                    obfuscatedString += String.fromCharCode(charCode);
-                    i++
-                }
-                return obfuscatedString;
-            }
-            function addBackslashes() {
-                var input = document.getElementById("obfuscatedOutputTwo").value;
-                var output = input.replace(/\\/g, '\\\\');
-                document.getElementById("backslashes").value = output;
-            }
-            const textbox = document.getElementById('messageInput');
-            textbox.addEventListener('input', function() {
-                hashMessage();
-                hashMessageTwo();
-                scrambleKey();
-                hashMessageThree();
-                scrambleKeyTwo();
-                addBackslashes();
-                console.log('Textbox content updated:', textbox.value);
-            });
-        </script>
-
-        <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            var reloaded = localStorage.getItem('reloaded');
-
-            if (!reloaded) {
-                localStorage.setItem('reloaded', 'true');
-            } 
-            else {
-                console.log("Page is being reloaded...");
-                localStorage.removeItem('reloaded');
-                window.location.href = "../HTML/CheatSheet.html";
-            }
-        });
-
-
-        </script>
-
+        
+        <input type="text" id="messageInput" placeholder="enter text to hash"><br>
+        <input type="text" id="hashedOutput" readonly="readonly" placeholder="hash"><br>
+        <input type="text" id="hashedOutputTwo" readonly="readonly" placeholder="hash two"><br>
+        <input type="text" id="obfuscatedOutput" readonly="readonly" placeholder="obfuscated hash"><br>
+        <input type="text" id="hashThree" readonly="readonly" placeholder="rehash"><br>
+        <input type="text" id="obfuscatedOutputTwo" readonly="readonly" placeholder="obfuscated hash"><br>
+        <input type="text" id="backslashes" readonly="readonly" placeholder="fixed backslashes"><br>
+        
+        <br><br>
+        
+        <input type="text" id="equationInput" placeholder="Enter an Equation to Solve">
+        <br>
+        <input type="text" id="equationOut" placeholder="Result">
+        
+        <br><br>
+        
+        <input type="text" id="derivativeInput" placeholder="Enter an Equation to Derive">
+        <br>
+        <input type="text" id="derivativeOut" placeholder="Derivative">
+        
+        <br><br>
+        
         <input type="image" id="totop" class="gototop" src="../IMAGES/up.png" alt="totop" onclick="scrollToTop()">
         <label for="totop" class="totoplabel"></label>
         <div class="toplabel">
             <span id="topspan">return to top</span>
         </div>
-    
+        
         <script src="../JS/toggle.js"></script>
+        <script src="../JS/ADMIN.js"></script>
     </body>
+    
 </html>
