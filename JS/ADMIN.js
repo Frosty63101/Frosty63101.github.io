@@ -107,24 +107,7 @@ function solveEquation() {
     }
 }
 
-function evaluateDerivative() {
-    var equationD = document.getElementById("derivativeInput").value;
-    var xD = math.parse('x');
-    
-    equationD = equationD.replace(/sqrt\(([^)]+)\)/g, function(match, numberD) {
-        return "math.sqrt(" + numberD + ")";
-    });
-    
-    try {
-        var derivative = math.derivative(equationD, xD).toString();
-        derivative = derivative.replace(/math.sqrt\(([^)]+)\)/g, function(match, numberD) {
-            return "sqrt(" + numberD + ")";
-        });
-        document.getElementById("derivativeOut").value = derivative;
-    } catch (error) {
-        document.getElementById("derivativeOut").value = "Error: Invalid equation";
-    }
-}
+
 
 
 function evaluateIntegral() {
@@ -159,11 +142,6 @@ equationTextbox.addEventListener('input', function() {
 });
 
 
-const derivativeTextbox = document.getElementById('derivativeInput');
-derivativeTextbox.addEventListener('input', function() {
-    evaluateDerivative();
-    console.log('Textbox content updated:', textbox.value);
-});
 
 
 function handleKeyPressSolveEquation(event) {
