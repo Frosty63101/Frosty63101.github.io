@@ -15,6 +15,7 @@ window.addEventListener('scroll', function() {
     var totopLabel = document.querySelector('.toplabel');
     var elementH = document.getElementById("header");
     var dropAdd = document.getElementById("dropAdd");
+    var headMove = document.getElementById("headMove");
     var x = document.getElementById("dropdown");
     if (window.scrollY > 0) {
         totopButton.style.display = 'block';
@@ -22,11 +23,13 @@ window.addEventListener('scroll', function() {
         elementH.style.left = '1150px';
         elementH.style.marginRight = '-200px';
         dropAdd.style.display = "none";
+        headMove.style.display = "none";
     } else {
         totopButton.style.display = 'none';
         totopLabel.style.display = 'none';
         elementH.style.left = '10px';
         elementH.style.marginRight = '950px';
+        headMove.style.display = "block";
         if(x.style.display !== "none"){
             dropAdd.style.display = "block";
         }
