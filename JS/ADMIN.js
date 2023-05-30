@@ -140,3 +140,92 @@ equationTextbox.addEventListener('input', function() {
     solveEquation();
     console.log('Textbox content updated:', textbox.value);
 });
+
+
+
+
+
+
+
+var files = JSON.parse(localStorage.getItem('uploadedFiles')) || [];
+          
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var fileName = file.name;
+    var fileExtension = fileName.split('.').pop().toLowerCase();
+  
+    if (['js', 'html', 'css'].includes(fileExtension)) {
+        var fileReader = new FileReader();
+        
+        fileReader.onload = function(event) {
+            var fileContent = event.target.result;
+            var fileLink = document.createElement('a');
+            fileLink.href = URL.createObjectURL(file);
+            fileLink.textContent = fileName;
+            document.getElementById('fileList').appendChild(fileLink);
+            files.push({
+                name: fileName,
+                content: fileContent
+            });
+
+            localStorage.setItem('uploadedFiles', JSON.stringify(files));
+        };
+        
+        fileReader.readAsText(file);
+    } 
+    else {
+        alert('Invalid file format. Please select a .js, .html, or .css file.');
+    }
+});
+function updateFileLinks() {
+    var linksDiv = document.getElementById('fileList');
+    linksDiv.innerHTML = '';
+
+    files.forEach(function(file) {
+        var fileLink = document.createElement('a');
+        fileLink.href = URL.createObjectURL(new Blob([file.content], { type: 'text/plain' }));
+        fileLink.textContent = file.name;
+        linksDiv.appendChild(fileLink);
+        linksDiv.appendChild(document.createElement('br'));
+    });
+}
+files.forEach(function(file) {
+    var fileLink = document.createElement('a');
+    fileLink.href = URL.createObjectURL(new Blob([file.content], { type: 'text/plain' }));
+    fileLink.textContent = file.name;
+    document.getElementById('fileList').appendChild(fileLink);
+    document.getElementById('fileList').appendChild(document.createElement('br'));
+});
+
+function removeLink() {
+    var searchBox = document.getElementById('searchBox');
+    var fileName = searchBox.value;
+
+    var fileIndex = files.findIndex(function(file) {
+        return file.name === fileName;
+    });
+
+    if (fileIndex > -1) {
+        files.splice(fileIndex, 1);
+
+        // Remove the link from the file list
+        var fileList = document.getElementById('fileList');
+        fileList.innerHTML = '';
+
+        files.forEach(function(file) {
+            var fileLink = document.createElement('a');
+            fileLink.href = URL.createObjectURL(new Blob([file.content], { type: 'text/plain' }));
+            fileLink.textContent = file.name;
+            fileList.appendChild(fileLink);
+            fileList.appendChild(document.createElement('br'));
+        });
+
+        // Save the updated files array in Local Storage
+        localStorage.setItem('uploadedFiles', JSON.stringify(files));
+
+        searchBox.value = '';
+    } 
+    else {
+      alert('No file found with that name.');
+    }
+}

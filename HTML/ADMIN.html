@@ -33,6 +33,8 @@
         </header>
         
         <br><br><br><br>
+
+        <h2>Hash and Scramble</h2>
         
         <input type="text" id="messageInput" placeholder="enter text to hash"><br>
         <input type="text" id="hashedOutput" readonly="readonly" placeholder="hash"><br>
@@ -43,12 +45,16 @@
         <input type="text" id="backslashes" readonly="readonly" placeholder="fixed backslashes"><br>
         
         <br><br>
+
+        <h2>Evaluate Equation</h2>
         
         <input type="text" id="equationInput" placeholder="Enter an Equation to Solve">
         <br>
         <input type="text" id="equationOut" placeholder="Result">
         
         <br><br>
+
+        <h2>Take Derivative</h2>
         
         <input type="text" id="derivativeInput" placeholder="Enter an Equation to Derive">
         <br>
@@ -57,12 +63,18 @@
         <input type="text" id="derivativeOut" placeholder="Derivative">
         <br>
         <input type="text" id="derivativeSimplified" placeholder="Simplified Derivative">
+
         <br><br>
+
+        <h2>Evaluate Derivative</h2>
+
         <input type="text" id="xValue" placeholder="x">
         <br>
         <input type="text" id="evaluateWXValue" placeholder="result">
         
         <br><br>
+
+        <h2>Take and Evaluate Integral</h2>
         
         <input type="text" id="integralInput" placeholder="enter equation">
         <br>
@@ -76,7 +88,22 @@
         <br>
         <input type="text" id="integralOut" placeholder="enter equation">
 
-        <br><br>
+        <br><br><br>
+
+        <h2>Upload File</h2>
+        <input type="file" id="fileInput" accept=".js, .html, .css">
+        <label for="fileInput" id="fileLabel">Choose File</label>
+
+        <div>
+            <input type="text" id="searchBox" placeholder="Enter file name to remove">
+            <button onclick="removeLink()">Remove Link</button>
+        </div>
+
+        <br><br><br><br>
+          
+        <div id="fileList"></div>
+
+        <br><br><br><br><br><br><br><br><br><br>
 
         <input type="image" id="totop" class="gototop" src="../IMAGES/up.png" alt="totop" onclick="scrollToTop()">
         <label for="totop" class="totoplabel"></label>
