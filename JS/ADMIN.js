@@ -100,8 +100,8 @@ function solveEquation() {
     });
     
     try {
-        var result = eval(equation);
-        document.getElementById("equationOut").value = result;
+        var resultE = eval(equation);
+        document.getElementById("equationOut").value = resultE;
     } catch (error) {
         document.getElementById("equationOut").value = "Error: Invalid equation";
     }
@@ -140,13 +140,3 @@ equationTextbox.addEventListener('input', function() {
     solveEquation();
     console.log('Textbox content updated:', textbox.value);
 });
-
-
-
-
-function handleKeyPressSolveEquation(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        solveEquation();
-    }
-}

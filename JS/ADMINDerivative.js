@@ -52,64 +52,73 @@ function evaluateDerivative() {
   
   
   function simplifyEquationOne() {
-    // Retrieve input and output elements
     var inputElementOne = document.getElementById("derivativeInput");
     var outputElementOne = document.getElementById("inSimplified");
   
-    // Retrieve the equation from the input element
     var equationOne = inputElementOne.value;
   
-    // Simplify the equation
+    equationOne = equationOne.replace(/sin\(([^)]+)\)/g, 'Math.sin($1)');
+    equationOne = equationOne.replace(/cos\(([^)]+)\)/g, 'Math.cos($1)');
+    equationOne = equationOne.replace(/tan\(([^)]+)\)/g, 'Math.tan($1)');
+  
     var simplifiedEquationOne = simplifyEquationStringOne(equationOne);
   
-    // Set the simplified equation as the value of the output element
     outputElementOne.value = simplifiedEquationOne;
   }
+  
 
   
   function simplifyEquationStringOne(expression) {
-    // Evaluate Math.sqrt(x^(34))
-    expression = expression.replace(/sqrt\(([^)]+)\)/g, function(match, number) {
-      const evaluatedSqrt = 'Math.sqrt(' + number + ')';
-      try {
-        return eval(evaluatedSqrt).toString();
-      } catch (error) {
-        return evaluatedSqrt;
-      }
-    });
+    expression = expression.replace(/sin\(([^)]+)\)/g, 'Math.sin($1)');
+    expression = expression.replace(/cos\(([^)]+)\)/g, 'Math.cos($1)');
+    expression = expression.replace(/tan\(([^)]+)\)/g, 'Math.tan($1)');
   
-    // Replace |x| with abs(x)
-    expression = expression.replace(/\|(.+?)\|/g, 'abs($1)');
+    expression = expression.replace(/\|(.+?)\|/g, 'Math.abs($1)');
   
     try {
-      // Use JavaScript's eval function to simplify the expression
       const simplifiedExpression = eval(expression);
-  
-      // Convert the simplified expression back to a string
       const simplifiedExpressionString = simplifiedExpression.toString();
   
       return simplifiedExpressionString;
     } catch (error) {
-      // Return the original expression if simplification fails
       return expression;
     }
   }
   
   
+  
   function simplifyEquation() {
-    // Retrieve input and output elements
     var inputElement = document.getElementById("derivativeOut");
     var outputElement = document.getElementById("derivativeSimplified");
   
-    // Retrieve the equation from the input element
     var equation = inputElement.value;
   
-    // Simplify the equation
-    var simplifiedEquation = simplifyEquationString(equation);
+    equation = equation.replace(/sin\(([^)]+)\)/g, 'Math.sin($1)');
+    equation = equation.replace(/cos\(([^)]+)\)/g, 'Math.cos($1)');
+    equation = equation.replace(/tan\(([^)]+)\)/g, 'Math.tan($1)');
   
-    // Set the simplified equation as the value of the output element
-    outputElement.value = simplifiedEquation;
+    equation = equation.replace(/sqrt\((.+?)\)/g, 'Math.sqrt($1)');
+    equation = equation.replace(/\|(.+?)\|/g, 'Math.abs($1)');
+  
+    try {
+      const simplifiedExpression = math.simplify(equation);
+  
+      const simplifiedExpressionString = simplifiedExpression
+        .toString()
+        .replace(/\^(\d+)/g, function (match, exponent) {
+          const num = parseInt(exponent);
+          if (num === 1) return "|x|";
+          else if (num === 2) return "x^2";
+          else return `x^${num}`;
+        })
+        .replace(/(\d+)\*(\|x\|)/g, '$1$2');
+  
+      outputElement.value = simplifiedExpressionString;
+    } catch (error) {
+      outputElement.value = equation;
+    }
   }
+  
   
   function simplifyEquationString(expression) {
     // Replace sqrt(x) with x^(1/2)
@@ -145,25 +154,20 @@ function pow(base, exponent) {
     return Math.pow(base, exponent);
   }
   
-  function solveEquation() {
-    // Get the equation and x value from input elements
+  function solveEquationD() {
     var equationS = document.getElementById('derivativeSimplified').value;
     var x = parseFloat(document.getElementById('xValue').value);
   
-    // Replace '^' in the equation string with '**' for exponentiation
-    equationS = equationS.replace(/\^/g, '**');
+    equationS = equationS.replace(/sin\(([^)]+)\)/g, 'Math.sin($1)');
+    equationS = equationS.replace(/cos\(([^)]+)\)/g, 'Math.cos($1)');
+    equationS = equationS.replace(/tan\(([^)]+)\)/g, 'Math.tan($1)');
   
-    // Add explicit multiplication operator
+    equationS = equationS.replace(/\^/g, '**');
     equationS = equationS.replace(/(\d+)\s*([a-z\(])/gi, '$1*$2');
     equationS = equationS.replace(/([a-z\)\]]\s*)(\d+)/gi, '$1*$2');
-    equationS = equationS.replace(/\)\s*\(/g, ')*('); // handle multiplication between parentheses
-  
-    // Replace 'x' in the equation string with the numeric value
+    equationS = equationS.replace(/\)\s*\(/g, ')*(');
     equationS = equationS.replace(/x/g, x);
   
-    console.log(equationS);
-  
-    // Evaluate the equation using eval() function
     var result = 0;
     try {
       result = eval(equationS);
@@ -172,6 +176,7 @@ function pow(base, exponent) {
       document.getElementById('evaluateWXValue').value = 'Error: Invalid equation';
     }
   }
+  
   
 
   
@@ -185,7 +190,7 @@ function pow(base, exponent) {
   
   const derivativeTextboxE = document.getElementById('xValue');
   derivativeTextboxE.addEventListener('input', function() {
-    solveEquation();
+    solveEquationD();
     console.log('Textbox content updated:', derivativeTextboxE.value);
   });
   
