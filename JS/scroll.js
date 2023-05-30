@@ -4,12 +4,14 @@ function scrollToElement(elementId) {
         behavior: "smooth"
     });
 }
+
 function scrollToTop() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 }
+
 window.addEventListener('scroll', function() {
     var totopButton = document.getElementById('totop');
     var totopLabel = document.querySelector('.toplabel');
@@ -20,17 +22,17 @@ window.addEventListener('scroll', function() {
     if (window.scrollY > 0) {
         totopButton.style.display = 'block';
         totopLabel.style.display = 'block';
-        elementH.style.left = '1150px';
-        elementH.style.marginRight = '-200px';
+        elementH.style.left = '65%';
+        elementH.style.marginRight = '-13%';
         dropAdd.style.display = "none";
         headMove.style.display = "none";
     } else {
         totopButton.style.display = 'none';
         totopLabel.style.display = 'none';
-        elementH.style.left = '10px';
-        elementH.style.marginRight = '950px';
+        elementH.style.left = '2%';
+        elementH.style.marginRight = '63%';
         headMove.style.display = "block";
-        if(x.style.display !== "none"){
+        if (x.style.display !== "none") {
             dropAdd.style.display = "block";
         }
     }
