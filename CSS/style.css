@@ -11,12 +11,17 @@ body {
     color: #ffffff;
 }
 
+.body{
+    margin-right: 50%;
+}
+
 header {
     position: fixed;
     background-color: #1ea7b9;
     padding: 20px;
     margin-right: 63%;
     transition: left 0.5s ease;
+    left: 2%;
 }
 
 header h1 {
