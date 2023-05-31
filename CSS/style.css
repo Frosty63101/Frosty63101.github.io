@@ -1,9 +1,9 @@
 .modified-background {
-    background-color: #dadada;
+    background-color: #e3dfff;
 }
 
 .modified-text {
-    color: #553E4E;
+    color: #0a0a0a;
 }
 
 .buttonColor {
@@ -17,13 +17,14 @@ body {
 }
 
 .body{
-    margin-right: 50%;
+    margin-right: 40%;
 }
 
 header {
     position: fixed;
     background-color: #538083;
     padding: 20px;
+    top: 2%;
     margin-right: 63%;
     transition: left 0.5s ease;
     left: 2%;
@@ -53,7 +54,11 @@ nav a {
 }
 
 .content {
-    margin: 20px;
+    margin-left: 3%;
+}
+
+.contentStart {
+    margin-left: 1.6%;
 }
 
 .toggle-input {

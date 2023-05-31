@@ -28,11 +28,11 @@ window.addEventListener('scroll', async function() {
       await delay(10);
       totopButton.style.display = 'block';
       totopLabel.style.display = 'block';
-      elementH.style.left = '65%';
+      elementH.style.left = '62.5%';
       elementH.style.marginRight = '-13%';
       dropAdd.style.display = "none";
-      headMove.style.display = "none";
-    } else {
+    } 
+    else {
       await delay(10);
       totopButton.style.display = 'none';
       totopLabel.style.display = 'none';
@@ -42,6 +42,10 @@ window.addEventListener('scroll', async function() {
       if (x.style.display !== "none") {
         dropAdd.style.display = "block";
       }
+    }
+    if(this.window,scrollY > 200) {
+      headMove.style.display = "none";
+      elementH.style.top = "2%";
     }
   });
   
