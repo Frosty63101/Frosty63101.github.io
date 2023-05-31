@@ -1,14 +1,19 @@
 .modified-background {
-    background-color: #ffffff;
+    background-color: #dadada;
 }
 
 .modified-text {
-    color: #000000;
+    color: #553E4E;
+}
+
+.buttonColor {
+background-color: #FFFACC;
+color: #755B69;
 }
 
 body {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #0a0a0a;
+    color: #e3dfff;
 }
 
 .body{
@@ -17,7 +22,7 @@ body {
 
 header {
     position: fixed;
-    background-color: #1ea7b9;
+    background-color: #538083;
     padding: 20px;
     margin-right: 63%;
     transition: left 0.5s ease;
