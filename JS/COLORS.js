@@ -33,6 +33,7 @@ function delay(ms) {
       await delay(100);
       body.style.color = "#ee82ee";
       await delay(100);
+      body.style.color = "#e3dfff";
     } while (whileToggle);
   }
   

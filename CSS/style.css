@@ -13,6 +13,19 @@ background-color: #FFFACC;
 color: #755B69;
 }
 
+.rainbowToggleC {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+}
+
+.rainbowToggleLabelDivC {
+    position: fixed;
+    top: 80px;
+    right: 45px;
+    color: #ffffff;
+}
+
 body {
     background-color: #000000;
     color: #ffffff;
