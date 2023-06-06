@@ -248,6 +248,17 @@
         </div>
         
         <script src="../JS/toggle.js"></script>
+        <script>
+            document.addEventListener("keydown", handleKeyPress);
+            function handleKeyPress(event) {
+              if (event.keyCode === 220) {  
+                  event.preventDefault();
+                  var checkbox = document.getElementById('rainbowToggle');
+                  checkbox.checked = !checkbox.checked;
+                  clicked();
+              }
+            }
+        </script>
     </body>
     
 </html>
