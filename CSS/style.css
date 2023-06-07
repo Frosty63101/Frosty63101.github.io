@@ -1,9 +1,9 @@
 .modified-background {
-    background-color: #e3dfff;
+    background-color: #dadada;
 }
 
 .modified-text {
-    color: #0a0a0a;
+    color: #553E4E;
 }
 
 .buttonColor {
@@ -11,20 +11,35 @@ background-color: #FFFACC;
 color: #755B69;
 }
 
+.rainbowToggleC {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+}
+
+.rainbowToggleLabelDivC {
+    position: fixed;
+    top: 80px;
+    right: 45px;
+    color: #ffffff;
+}
+
 body {
+    background-color: #000000;
+    color: #ffffff;
     background-color: #0a0a0a;
     color: #e3dfff;
 }
 
 .body{
-    margin-right: 40%;
+    margin-right: 50%;
 }
 
 header {
     position: fixed;
+    background-color: #1ea7b9;
     background-color: #538083;
     padding: 20px;
-    top: 2%;
     margin-right: 63%;
     transition: left 0.5s ease;
     left: 2%;

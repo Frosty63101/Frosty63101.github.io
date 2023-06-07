@@ -10,6 +10,8 @@ document.getElementById("toggleButton").addEventListener(
             "modified-text");
         spantoggle.classList.toggle(
             "modified-text");
+        rainbowToggleSpan.classList.toggle(
+            "modified-text");
 
         var isModifiedBackground = document.body
             .classList.contains(
@@ -51,6 +53,8 @@ window.addEventListener("DOMContentLoaded", function() {
         spantoggle.classList.add(
             "modified-text");
         img.src = "../IMAGES/up.png";
+        rainbowToggleSpan.classList.add(
+            "modified-text");
         
     }
     else {

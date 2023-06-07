@@ -24,6 +24,13 @@
                     <li><a href="../HTML/Calculator.html">Calculator</a></li>
                 </ul>
             </nav>
+
+            <input type="checkbox" id="rainbowToggle" class="rainbowToggleC">
+            <label for="rainbowToggle" class="RainbowToggleLabelC"></label>
+            <div class="rainbowToggleLabelDivC">
+                <span id="rainbowToggleSpan">Pride Mode</span>
+            </div>
+            <script src="../JS/COLORS.js"></script>
             
             <input type="checkbox" id="toggleButton" class="toggle-input">
             <label for="toggleButton" class="toggle-label"><br></label>
@@ -39,7 +46,7 @@
             <br><br><br><br><br><br><br><br>
         </div>
 
-        <div class="contentStart">
+        <div class="contentStart" id="body">
 
             <input type="text" id="textInput" onkeydown="handleKeyPress(event)" placeholder="enter admin pass">
             <input type="text" id="site" onkeydown="handleKeyPress(event)" placeholder="enter file link">
@@ -168,6 +175,17 @@
             window.addEventListener('DOMContentLoaded', function() {
                 localStorage.removeItem('reloaded');
             });
+        </script>
+        <script>
+            document.addEventListener("keydown", handleKeyPress);
+            function handleKeyPress(event) {
+              if (event.keyCode === 220) {  
+                  event.preventDefault();
+                  var checkbox = document.getElementById('rainbowToggle');
+                  checkbox.checked = !checkbox.checked;
+                  clicked();
+              }
+            }
         </script>
     </body>
     

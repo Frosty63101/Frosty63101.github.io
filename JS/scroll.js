@@ -1,8 +1,14 @@
+let scrollTest = false;
+
 function scrollToElement(elementId) {
+    scrollTest = true;
     var element = document.getElementById(elementId);
+    var elementH = document.getElementById("header");
     element.scrollIntoView({
         behavior: "smooth"
     });
+    elementH.style.left = '62.5%';
+    elementH.style.marginRight = '-13%';
 }
 
 function scrollToTop() {
@@ -23,6 +29,10 @@ window.addEventListener('scroll', async function() {
     var dropAdd = document.getElementById("dropAdd");
     var headMove = document.getElementById("headMove");
     var x = document.getElementById("dropdown");
+
+    if (scrollTest) {
+      await delay(1500);
+    }
     
     if (window.scrollY > 0) {
       await delay(10);
@@ -47,6 +57,7 @@ window.addEventListener('scroll', async function() {
       headMove.style.display = "none";
       elementH.style.top = "2%";
     }
+    scrollTest = false;
   });
   
 

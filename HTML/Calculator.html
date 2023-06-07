@@ -44,6 +44,13 @@
             </div>
 
             <script src="../JS/DROPDOWN.JS"></script>
+
+            <input type="checkbox" id="rainbowToggle" class="rainbowToggleC">
+            <label for="rainbowToggle" class="RainbowToggleLabelC"></label>
+            <div class="rainbowToggleLabelDivC">
+                <span id="rainbowToggleSpan">Pride Mode</span>
+            </div>
+            <script src="../JS/COLORS.js"></script>
             
             <input type="checkbox" id="toggleButton" class="toggle-input">
             <label for="toggleButton" class="toggle-label"><br></label>
@@ -60,7 +67,7 @@
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
         
-        <div class="content">
+        <div class="content" id="body">
 
         <h2 id="header1">Formulas</h2>
         <iframe src="../PDF/formulas.pdf" width="61%" height="4350px"></iframe>
@@ -118,6 +125,17 @@
         </div>
         
         <script src="../JS/toggle.js"></script>
+        <script>
+            document.addEventListener("keydown", handleKeyPress);
+            function handleKeyPress(event) {
+              if (event.keyCode === 220) {  
+                  event.preventDefault();
+                  var checkbox = document.getElementById('rainbowToggle');
+                  checkbox.checked = !checkbox.checked;
+                  clicked();
+              }
+            }
+        </script>
     </body>
     
 </html>
