@@ -8,7 +8,6 @@ function evaluateDerivative() {
     try {
       var derivative = math.derivative(equationD, 'x').toString();
   
-      // Simplify the derivative expression
       derivative = simplifyDerivative(derivative);
   
       document.getElementById("derivativeOut").value = derivative;
@@ -18,18 +17,14 @@ function evaluateDerivative() {
   }
   
   function simplifyDerivative(expression) {
-    // Replace |x| with abs(x)
     expression = expression.replace(/\|(.+?)\|/g, 'abs($1)');
   
     try {
-      // Use Math.js to simplify the expression
       const parsedExpression = math.parse(expression);
       const simplifiedExpression = parsedExpression.simplify();
   
-      // Convert the simplified expression back to a string
       const simplifiedExpressionString = simplifiedExpression.toString();
   
-      // Adjust the expression format to match the desired output
       const adjustedExpression = simplifiedExpressionString
         .replace(/x(\^(\d+))?/g, function(match, exponent) {
           if (exponent) {
@@ -41,11 +36,10 @@ function evaluateDerivative() {
             return "x";
           }
         })
-        .replace(/(\d+)(\|x|)/g, '$1*$2'); // Add multiplication operator if a number is followed by |x|
+        .replace(/(\d+)(\|x|)/g, '$1*$2');
   
       return adjustedExpression;
     } catch (error) {
-      // Return the original expression if simplification fails
       return expression;
     }
   }
@@ -121,17 +115,13 @@ function evaluateDerivative() {
   
   
   function simplifyEquationString(expression) {
-    // Replace sqrt(x) with x^(1/2)
     expression = expression.replace(/sqrt\((.+?)\)/g, '($1)^(1/2)');
   
-    // Replace |x| with abs(x)
     expression = expression.replace(/\|(.+?)\|/g, 'abs($1)');
   
     try {
-      // Use Math.js to simplify the expression
       const simplifiedExpression = math.simplify(expression);
   
-      // Simplify the exponents and absolute values
       const simplifiedExpressionString = simplifiedExpression
         .toString()
         .replace(/\^(\d+)/g, function(match, exponent) {
@@ -140,16 +130,14 @@ function evaluateDerivative() {
           else if (num === 2) return "x^2";
           else return `x^${num}`;
         })
-        .replace(/(\d+)\*(\|x\|)/g, '$1$2'); // Remove multiplication operator if a number is followed by |x|
+        .replace(/(\d+)\*(\|x\|)/g, '$1$2');
   
       return simplifiedExpressionString;
     } catch (error) {
-      // Return the original expression if simplification fails
       return expression;
     }
   }
 
-// Custom pow() function
 function pow(base, exponent) {
     return Math.pow(base, exponent);
   }

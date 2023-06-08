@@ -208,7 +208,6 @@ function removeLink() {
     if (fileIndex > -1) {
         files.splice(fileIndex, 1);
 
-        // Remove the link from the file list
         var fileList = document.getElementById('fileList');
         fileList.innerHTML = '';
 
@@ -220,7 +219,6 @@ function removeLink() {
             fileList.appendChild(document.createElement('br'));
         });
 
-        // Save the updated files array in Local Storage
         localStorage.setItem('uploadedFiles', JSON.stringify(files));
 
         searchBox.value = '';
